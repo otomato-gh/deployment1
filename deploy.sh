@@ -25,10 +25,8 @@ clone_website_code(){
 	fi
 }
 pull_request(){
-        if [ -d /var/www/html/ ]; then
-          git add .
-          git commit -m "FIXED"
-          git push origin/main 
+        if [! -d /var/www/html/ ]; then
+          git pull origin/main 
         fi
 }
 
