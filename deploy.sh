@@ -1,11 +1,11 @@
 #! /bin/bash
 
 print_title(){
-	echo Deploy Srcipt
+	echo "Deploy Srcipt"
 }
 
 print_date(){
-	echo Date: $(date)
+	echo "Date: $(date +"%d-%m-%y %H-%M-%S")"
 }
 # pass package name to function
 install_package(){
