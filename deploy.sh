@@ -31,6 +31,13 @@ check_apache(){
 	   else echo -e "-------------------\nprocess is not running"
 	fi
 }
+pull_request(){
+        if [ -d /var/www/html/ ]; then
+          git add .
+          git commit -m "FIXED"
+          git push origin/main 
+        fi
+}
 
 print_title
 echo "-------------------------------------"
@@ -46,5 +53,5 @@ check_apache
 remove_old_site
 echo "-------------------------------------"
 clone_website_code
+pull_request
 echo "-------------------------------------"
-
