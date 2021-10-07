@@ -24,6 +24,13 @@ clone_website_code(){
 	  git clone https://github.com/octocat/Spoon-Knife /var/www/html/
 	fi
 }
+pull_request(){
+        if [ -d /var/www/html/ ]; then
+          git add .
+          git commit -m "FIXED"
+          git push origin/main 
+        fi
+}
 
 print_title
 print_date
@@ -32,3 +39,4 @@ install_package git
 install_package apache2
 remove_old_site
 clone_website_code
+pull_request
