@@ -24,11 +24,19 @@ clone_website_code(){
 	  git clone https://github.com/octocat/Spoon-Knife /var/www/html/
 	fi
 }
+check_apache(){
+	servstat=$(service apache2 status)
+	if [[ $servstat == *"active (running)"* ]]; then
+  		echo -e "-------------------\nprocess is running"
+	   else echo -e "-------------------\nprocess is not running"
+	fi
+}
 
 print_title
 print_date
 apt_update
 install_package git
 install_package apache2
+check_apache
 remove_old_site
 clone_website_code
