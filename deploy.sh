@@ -16,12 +16,12 @@ apt_update(){
 }
 remove_old_site(){
 	if [ ! -d /var/www/html/.git ]; then
-           rm -f /var/www/html/index.html
+          sudo rm -f /var/www/html/index.html
 	fi
 }
 clone_website_code(){
 	if [ ! -d /var/www/html/.git ]; then
-	  git clone https://github.com/octocat/Spoon-Knife /var/www/html/
+	 sudo git clone https://github.com/octocat/Spoon-Knife /var/www/html/
 	fi
 }
 check_apache(){
@@ -33,10 +33,18 @@ check_apache(){
 }
 
 print_title
+echo "-------------------------------------"
 print_date
+echo "-------------------------------------"
 apt_update
+echo "-------------------------------------"
 install_package git
+echo "-------------------------------------"
 install_package apache2
+echo "-------------------------------------"
 check_apache
 remove_old_site
+echo "-------------------------------------"
 clone_website_code
+echo "-------------------------------------"
+
